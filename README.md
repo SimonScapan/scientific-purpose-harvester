@@ -9,7 +9,9 @@ This Repo is build for educational purposes. It's aim is to build a dynamic poss
 
 1. Google search the insertet question
 2. Pick the first 10 Websites and check them for Topic and Content
-3. Compare the content of each resultpage with the given question based on a matching factor
-4. Return the best 5 Pages to the User Interface with Headline and Content
+3. Skip Websites which are Blacklistet by us (e.g. Wikipedia, YouTube, ...)
+4. Return the best 5 Pages to the User Interface with Headline, Content and URL
 
-# how does it work
+# how to use it
+
+Simply open the Webapp by running the API[api.py] file.
