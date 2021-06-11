@@ -33,7 +33,6 @@ def search_engine_result(query):
     # pick random five webpages for further crawling
     return random.sample(links, 5)
 
-
 def get_page_content(url):
     '''
     input: url = give the required url
@@ -72,8 +71,6 @@ def get_page_content(url):
     
     # return title and content of given webpage 
     return title, content
-
-
 
 def get_work_done(question):
     '''
