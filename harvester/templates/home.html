@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SPH</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <title>SPH</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
 
-</head>
+    <script>
+        function foodpath() {
+        var question= $('#question').val();
+        $.ajax({
+                    url: "/foodpath",
+                    type: "POST",
+                    data: {question:question}
 
-<script>
+                }).done(function(response) {
 
-function myFunction() {
-var question= $('#question').val();
-  $.ajax({
-              url: "/join",
-              type: "POST",
-              data: {question:question}
+                    var html= "<br><br><br><p> <b> RESULT : <b><p>";
 
-          }).done(function(response) {
+                    response =response.result;
+                        $.each(response,function(key,val){
+                        console.log(val);
+                            html+="<p>"+val+"<p>"
 
-            var html= "<br><br><br><p> <b> RESULT : <b><p>";
+                        });
+                        html +="<br>";
+                        $(".show-data").append(html);
+                    });
+        };
 
-            response =response.result;
-                 $.each(response,function(key,val){
-                 console.log(val);
-                    html+="<p>"+val+"<p>"
+        function newspaper() {
+        var question= $('#question').val();
+        $.ajax({
+                    url: "/newspaper",
+                    type: "POST",
+                    data: {question:question}
 
-                });
-                html +="<br>";
-                $(".show-data").append(html);
-            });
-};
+                }).done(function(response) {
 
-  </script>
-<body>
-    <h1>Welcome to SPH - Scientific Purpose Harvester</h1>
-    <p>
-        After entering your scientific Question, the Harvester crawl the WWW for the best results!<br>
-        Please be a bit patient with the software ... it may take some seconds to respond :)<br><br>
-            Your Quenstion:  <input type="text" id="question" name="question"><br><br>
-            <button id="clicked" onclick="myFunction()">Let's go</button>
-            <a href="{{ url_for('home') }}"><button>Refresh</button></a>
-        </p>
-    <div class="show-data" >
+                    var html= "<br><br><br><p> <b> RESULT : <b><p>";
 
-    </div>
-</body>
+                    response =response.result;
+                        $.each(response,function(key,val){
+                        console.log(val);
+                            html+="<p>"+val+"<p>"
+
+                        });
+                        html +="<br>";
+                        $(".show-data").append(html);
+                    });
+        };
+    </script>
+
+    <body>
+        <h1>Welcome to SPH - Scientific Purpose Harvester</h1>
+        <p>
+            After entering your scientific Question, the Harvester crawl the WWW for the best results!<br>
+            Please be a bit patient with the software ... it may take some seconds to respond :)<br><br>
+                Your Quenstion:  <input type="text" id="question" name="question"><br><br>
+                <button id="foodpath" onclick="foodpath()">Let's go on foodpath</button>
+                <button id="" onclick="newspaper()">Let's go on newspaper</button>
+                <a href="{{ url_for('home') }}"><button>Refresh</button></a>
+            </p>
+        <div class="show-data" >
+
+        </div>
+    </body>
+
 </html>
