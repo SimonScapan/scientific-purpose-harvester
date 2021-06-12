@@ -1,6 +1,9 @@
 from newspaper import Article       # pip3 install newspaper3k
+import pandas as pd
 from googlesearch import search
+import ssl
 
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def search_engine_result(query):
     '''
@@ -30,6 +33,8 @@ def get_article(url):
     describe this shit
     '''
 
+    title = authors = publish_date = text = keywords = summary = ''
+
     try: 
         article = Article(url)
         article.download()
@@ -47,7 +52,7 @@ def get_article(url):
 
         return title, authors, publish_date, text, keywords, summary
 
-    except: return "error"
+    except: print('Nothing found')
     
 def get_it_done(question):
     '''
@@ -64,7 +69,9 @@ def get_it_done(question):
     articles = pd.DataFrame(columns = ['title', 'authors', 'publish_date', 'text', 'keywords', 'summary', 'url'])
     urls = search_engine_result(question)
     for url in urls:
-        title, authors, publish_date, text, keywords, summary = get_article(url)
-        articles.loc[len(articles)] = [title, authors, publish_date, text, keywords, summary, url]
+        try: 
+            title, authors, publish_date, text, keywords, summary = get_article(url)
+            articles.loc[len(articles)] = [title, authors, publish_date, text, keywords, summary, url]
+        except: pass
 
     return articles
