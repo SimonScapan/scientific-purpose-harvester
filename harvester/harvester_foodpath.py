@@ -4,6 +4,9 @@ import requests
 from requests.api import get
 from bs4 import BeautifulSoup 
 import pandas as pd
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def search_engine_result(query):
     '''
@@ -91,3 +94,5 @@ def get_work_done(question):
         articles.loc[len(articles)] = [title, content, url]
 
     return articles
+
+print(get_work_done('Pusteblume'))
