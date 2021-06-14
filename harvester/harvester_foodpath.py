@@ -94,5 +94,3 @@ def get_work_done(question):
         articles.loc[len(articles)] = [title, content, url]
 
     return articles
-
-print(get_work_done('Pusteblume'))
