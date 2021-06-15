@@ -27,8 +27,8 @@ def search_engine_result(query):
     links = []
 
     # get google search engine results with given parameters
-    for link in googlesearch.search(query, lang='de'): 
-
+    for link in googlesearch.search(query, lang='de')[0:10]: 
+        
         # cick the blacklistet webpages
         if not [string for string in blacklist if(string in link)]:
             links.append(link) 
