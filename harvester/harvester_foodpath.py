@@ -29,7 +29,6 @@ def search_engine_result(query):
     links = []
     results=googlesearch.search(query, lang='de')
     results=[x for x in results if "http" in x]
-    print(results)
     # get google search engine results with given parameters
     for link in results: 
         

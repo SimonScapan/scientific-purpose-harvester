@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template,jsonify
 from harvester_foodpath import get_work_done
-from harvester_newspap3r import get_it_done
 from harvester_scholar import get_content
 
 app = Flask(__name__)
