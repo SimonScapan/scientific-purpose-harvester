@@ -5,6 +5,13 @@ import ssl
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
+def searchscholar(query):
+    '''
+    '''
+    #print(gscholar.query(query))
+    #search_query = scholarly.search_keyword(query)
+    #scholarly.pprint(next(search_query))   
+
 def search_engine_result(query):
     '''
     input: query = give your question to the tool
