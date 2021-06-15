@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import re
-from htlm_cleaner import cleanhtml
+from html_cleaner import cleanhtml
 from urllib.parse import urlencode
 
 from requests.api import get
