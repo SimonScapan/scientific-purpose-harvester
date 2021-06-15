@@ -18,7 +18,7 @@ def get_url(query):
 
 def get_content(query):
     
-    url = get_url("machine learning")
+    url = get_url(query)
 
     response=requests.get(url,headers=headers)
     soup=BeautifulSoup(response.content,'lxml')
@@ -49,6 +49,6 @@ def get_content(query):
         except:
 
             pass
-        
+
     articles = articles.sort_index(ascending=False)
     return articles
