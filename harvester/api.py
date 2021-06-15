@@ -32,16 +32,6 @@ def my_form_post():
     result = {str(key): value for key, value in result.items()}
     return jsonify(result=result)
 
-app.route('/newspaper', methods=['GET','POST'])
-def my_form_post():
-    question = request.form['question']
-    resultdf = do_newspaper(question)
-    result = {
-        "output": resultdf
-    }
-    result = {str(key): value for key, value in result.items()}
-    return jsonify(result=result)
-
 @app.route('/scholar', methods=['GET','POST'])
 def my_form_post2():
     question = request.form['question']
