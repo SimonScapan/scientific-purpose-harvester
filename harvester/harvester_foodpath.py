@@ -5,6 +5,8 @@ from requests.api import get
 from bs4 import BeautifulSoup 
 import pandas as pd
 import ssl
+from htlm_cleaner import cleanhtml
+
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -25,9 +27,11 @@ def search_engine_result(query):
 
     # result list of links to webpages
     links = []
-
+    results=googlesearch.search(query, lang='de')
+    results=[x for x in results if "http" in x]
+    print(results)
     # get google search engine results with given parameters
-    for link in googlesearch.search(query, lang='de')[0:10]: 
+    for link in results: 
         
         # cick the blacklistet webpages
         if not [string for string in blacklist if(string in link)]:
@@ -74,13 +78,6 @@ def get_page_content(url):
     
     # return title and content of given webpage 
     return cleanhtml(title), cleanhtml(content)
-
-import re
-
-def cleanhtml(raw_html):
-  cleanr = re.compile('<.*?>|[\n\t\r]|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
-  cleantext = re.sub(cleanr, '', raw_html)
-  return cleantext
 
 
 def get_work_done(question):
