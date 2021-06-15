@@ -29,6 +29,28 @@
                     });
         };
 
+        function scholar() {
+        var question= $('#question').val();
+        $.ajax({
+                    url: "/scholar",
+                    type: "POST",
+                    data: {question:question}
+
+                }).done(function(response) {
+
+                    var html= "<br><br><br><p> <b> RESULT : <b><p>";
+
+                    response =response.result;
+                        $.each(response,function(key,val){
+                        console.log(val);
+                            html+="<p>"+val+"<p>"
+
+                        });
+                        html +="<br>";
+                        $(".show-data").replaceWith(html);
+                    });
+        };
+
         function newspaper() {
         var question= $('#question').val();
         $.ajax({
@@ -47,7 +69,7 @@
 
                         });
                         html +="<br>";
-                        $(".show-data").append(html);
+                        $(".show-data").replaceWith(html);
                     });
         };
     </script>
@@ -60,6 +82,7 @@
                 Your Quenstion:  <input type="text" id="question" name="question"><br><br>
                 <button id="foodpath" onclick="foodpath()">Let's go on foodpath</button>
                 <button id="" onclick="newspaper()">Let's go on newspaper</button>
+                <button id="" onclick="scholar()">Let's go on scholar</button>
                 <a href="{{ url_for('home') }}"><button>Refresh</button></a>
             </p>
         <div class="show-data" >
