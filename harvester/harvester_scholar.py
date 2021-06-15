@@ -26,7 +26,7 @@ def get_content(query):
     articles = pd.DataFrame(columns = ['title', 'content', 'url'])
 
     # loop over articles
-    for item in soup.select("[data-lid"):
+    for item in soup.select("[data-lid]"):
 
         try:
             
@@ -44,10 +44,11 @@ def get_content(query):
                     citation = re.search(r"(?<=von: )\d+", str(element))[0]
             
             # save to dataframe
-            articles.loc[citation] = [title, content, url]
+            articles.loc[int(citation)] = [title, content, url]
         
         except:
 
             pass
-    
+        
+    articles = articles.sort_index(ascending=False)
     return articles
