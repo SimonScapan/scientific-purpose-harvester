@@ -50,28 +50,6 @@
                         $(".show-data").replaceWith(html);
                     });
         };
-
-        function newspaper() {
-        var question= $('#question').val();
-        $.ajax({
-                    url: "/newspaper",
-                    type: "POST",
-                    data: {question:question}
-
-                }).done(function(response) {
-
-                    var html= "<br><br><br><p> <b> RESULT : <b><p>";
-
-                    response =response.result;
-                        $.each(response,function(key,val){
-                        console.log(val);
-                            html+="<p>"+val+"<p>"
-
-                        });
-                        html +="<br>";
-                        $(".show-data").replaceWith(html);
-                    });
-        };
     </script>
 
     <body>
