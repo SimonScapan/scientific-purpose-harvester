@@ -1,5 +1,5 @@
 import random
-from googlesearch import search
+import googlesearch
 import requests
 from requests.api import get
 from bs4 import BeautifulSoup 
@@ -27,7 +27,7 @@ def search_engine_result(query):
     links = []
 
     # get google search engine results with given parameters
-    for link in search(query, tld="co.in", lang='de', num=20, stop=20, pause=2): 
+    for link in googlesearch.search(query, lang='de'): 
 
         # cick the blacklistet webpages
         if not [string for string in blacklist if(string in link)]:
