@@ -73,7 +73,15 @@ def get_page_content(url):
         content = "sorry, no results"
     
     # return title and content of given webpage 
-    return title, content
+    return cleanhtml(title), cleanhtml(content)
+
+import re
+
+def cleanhtml(raw_html):
+  cleanr = re.compile('<.*?>|[\n\t\r]|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
+  cleantext = re.sub(cleanr, '', raw_html)
+  return cleantext
+
 
 def get_work_done(question):
     '''
