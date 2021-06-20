@@ -5,7 +5,7 @@ from requests.api import get
 from bs4 import BeautifulSoup 
 import pandas as pd
 import ssl
-from htlm_cleaner import cleanhtml
+from html_cleaner import cleanhtml
 
 
 ssl._create_default_https_context = ssl._create_unverified_context
