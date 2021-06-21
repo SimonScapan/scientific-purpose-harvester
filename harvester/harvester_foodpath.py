@@ -17,9 +17,8 @@ def search_engine_result(query):
     process:
         * search google for the given query
         * remove blacklistet webpages
-        * choose random five results
 
-    return: five random google results without blacklistet webpages
+    return: google results without blacklistet webpages
     '''
 
     # add some websites which you don't want to see in your analysis
@@ -31,13 +30,12 @@ def search_engine_result(query):
     results=[x for x in results if "http" in x]
     # get google search engine results with given parameters
     for link in results: 
-        
         # cick the blacklistet webpages
         if not [string for string in blacklist if(string in link)]:
             links.append(link) 
 
     # pick random five webpages for further crawling
-    return random.sample(links, 5)
+    return links
 
 def get_page_content(url):
     '''
@@ -47,9 +45,9 @@ def get_page_content(url):
         * webpage is parsed by BeautifulSoup
         * get Title of Webpage
         * get amount of <p> Tags in page
-        * search for largest <p> tag
+        * append all <p> tags
 
-    return: webpage title and largest <p> Tag content
+    return: webpage title and all <p> Tag content
     '''
 
     # Request webpage from WWW with request package
@@ -65,16 +63,10 @@ def get_page_content(url):
     tags = soup.findAll('p')
 
     # add all <p> elements into list
-    contents = []
+    content = ''
     for i in range(len(tags)):
-        contents.append(soup.select('p')[i].text.strip()) # delete all leading and tailing whitespaces from string with .strip()
+        content = content + '' + str(soup.select('p')[i].text.strip()) # delete all leading and tailing whitespaces from string with .strip()
 
-    # save only the longest <p> element
-    try:
-        content = max(contents, key = len)
-    except:
-        content = "sorry, no results"
-    
     # return title and content of given webpage 
     return cleanhtml(title), cleanhtml(content)
 
@@ -85,16 +77,21 @@ def get_work_done(question):
 
     process:
         * search google for your question
-        * get 5 webpages
         * get their title and content
+        * sort content by length
 
     return: dataframe with = |title|content|url|
     '''
 
-    articles = pd.DataFrame(columns = ['title', 'content', 'url'])
+    articles = pd.DataFrame(columns = ['Title', 'Content', 'URL', 'content_length'])
     urls = search_engine_result(question)
     for url in urls:
-        title, content = get_page_content(url)
-        articles.loc[len(articles)] = [title, content, url]
-
+        title, content = get_page_content(url)  # get title and content of webpage
+        content_length = len(content)           # sort by content length
+        content = content[:1000] + ' ...'       # truncate content to 500 digits
+        articles.loc[len(articles)] = [title, content, url, content_length]
+    
+    articles.sort_values(by=['content_length'], ascending=False, inplace=True)  # sort length ascending
+    articles.drop(['content_length'], axis=1, inplace=True)                     # delete help column content_length
+    
     return articles
