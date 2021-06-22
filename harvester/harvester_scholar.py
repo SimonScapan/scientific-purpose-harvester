@@ -84,4 +84,7 @@ def get_content(query):
             pass
 
     articles = articles.sort_index(ascending=False)
+
+    articles['url'] = '<a href=' + articles['url'] + '><span>' + articles['url'] + '</span></a>'
+
     return articles

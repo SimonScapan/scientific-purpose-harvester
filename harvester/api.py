@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 def do_foodpath(question):
    df =  get_work_done(question)
-   return df.to_html(header="true", table_id="foodpath")
+   return df.to_html(header="true", table_id="foodpath", escape=False)
 
 def do_newspaper(question):
    df =  get_it_done(question)
@@ -14,7 +14,7 @@ def do_newspaper(question):
 
 def do_scholar(question):
     df = get_content(question)
-    return df.to_html(header="true", table_id="scholar")
+    return df.to_html(header="true", table_id="scholar", escape=False)
 
 
 @app.route('/')

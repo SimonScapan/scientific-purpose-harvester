@@ -8,6 +8,7 @@ import ssl
 from html_cleaner import cleanhtml
 
 
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def search_engine_result(query):
@@ -89,9 +90,12 @@ def get_work_done(question):
         title, content = get_page_content(url)  # get title and content of webpage
         content_length = len(content)           # sort by content length
         content = content[:1000] + ' ...'       # truncate content to 500 digits
-        articles.loc[len(articles)] = [title, content, url, content_length]
+        articles.loc[len(articles)] = [title, content, url.rstrip('/'), content_length]
     
     articles.sort_values(by=['content_length'], ascending=False, inplace=True)  # sort length ascending
     articles.drop(['content_length'], axis=1, inplace=True)                     # delete help column content_length
     
+    articles['URL'] = '<a href=' + articles['URL'] + '><span>' + articles['URL'] + '</span></a>'
+
+
     return articles
