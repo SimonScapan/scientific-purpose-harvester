@@ -97,5 +97,4 @@ def get_work_done(question):
     
     articles['URL'] = '<a href=' + articles['URL'] + '><span>' + articles['URL'] + '</span></a>'
 
-
     return articles

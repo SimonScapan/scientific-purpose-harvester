@@ -46,7 +46,7 @@ def get_content(query):
     response=requests.get(url,headers=headers)
     soup=BeautifulSoup(response.content,'lxml')
 
-    articles = pd.DataFrame(columns = ['title', 'content', 'url'])
+    articles = pd.DataFrame(columns = ['Title', 'Content', 'URL'])
 
     # loop over articles
     #for item in soup.select("[data-lid]"): ## not working because of bot blocking
@@ -85,6 +85,6 @@ def get_content(query):
 
     articles = articles.sort_index(ascending=False)
 
-    articles['url'] = '<a href=' + articles['url'] + '><span>' + articles['url'] + '</span></a>'
+    articles['URL'] = '<a href=' + articles['URL'] + '><span>' + articles['URL'] + '</span></a>'
 
     return articles
