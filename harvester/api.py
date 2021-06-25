@@ -10,12 +10,12 @@ app = Flask(__name__)
 # define the call to Python functions
 def do_foodpath(question):
    df = get_work_done(question)
-   html = df.to_html(header="true", table_id="foodpath", columns=['Title', 'Content', 'URL'], col_space=['20%','60%','20%'], justify='center', escape=False)
+   html = df.to_html(index=False, header="true", table_id="foodpath", columns=['Title', 'Content', 'URL'], col_space=['20%','60%','20%'], justify='center', escape=False)
    return html
 
 def do_scholar(question):
     df = get_content(question)
-    html = df.to_html(header="true", table_id="foodpath", columns=['Title', 'Content', 'URL'], col_space=['20%','60%','20%'], justify='center', escape=False)
+    html = df.to_html(index=False, header="true", table_id="foodpath", columns=['Citationcount','Title', 'Content', 'URL'], col_space=['30%','20%','40%','30%'], justify='center', escape=False)
     return html
 
 @app.route('/')

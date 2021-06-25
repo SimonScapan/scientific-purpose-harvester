@@ -46,7 +46,7 @@ def get_content(query):
     response=requests.get(url,headers=headers)
     soup=BeautifulSoup(response.content,'lxml')
 
-    articles = pd.DataFrame(columns = ['Title', 'Content', 'URL'])
+    articles = pd.DataFrame(columns = ['Citationcount','Title', 'Content', 'URL'])
 
     # loop over articles
     #for item in soup.select("[data-lid]"): ## not working because of bot blocking
@@ -77,7 +77,7 @@ def get_content(query):
                 pass
             
             # save to dataframe
-            articles.loc[int(citation)] = [title, content, url]
+            articles.loc[int(citation)] = [citation,title, content, url]
         
         except:
 
@@ -86,5 +86,5 @@ def get_content(query):
     articles = articles.sort_index(ascending=False)
 
     articles['URL'] = '<a href=' + articles['URL'] + '><span>' + articles['URL'] + '</span></a>'
-
+    print(articles)
     return articles
