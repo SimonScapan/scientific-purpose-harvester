@@ -6,6 +6,7 @@ from harvester_foodpath import get_work_done
 from harvester_scholar import get_content
 
 app = Flask(__name__)
+# app.use("/templates", flask.static('./templates/'));
 
 # define the call to Python functions
 def do_foodpath(question):
@@ -37,11 +38,15 @@ def my_form_post():
 def my_form_post2():
     question = request.form['question']             # get question from Form/HTML input
     resultdf = do_scholar(question)                 # call Python Funciton with question
+    print(resultdf)
     result = {
         "output": resultdf
     }
     result = {str(key): value for key, value in result.items()}
-    return jsonify(result=result)
+    response = jsonify(result=result)
+    print(response)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)

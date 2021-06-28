@@ -1,0 +1,21 @@
+
+<html>
+    <head>
+    <!-- <script src="/brython.js"></script> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script> -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'brython.js') }}"></script>
+    </head>
+    <body onload="brython()">
+    <script type="text/python">
+    from browser import document
+    from browser.widgets.dialog import InfoDialog
+    
+    def click(ev):
+        InfoDialog("Hello", f"Hello, {document['zone'].value} !")
+    
+    # bind event 'click' on button to function echo
+    document["echo"].bind("click", click)</script>
+    <input id="zone">
+    <button id="echo">click !</button>
+    </body>
+    </html>
