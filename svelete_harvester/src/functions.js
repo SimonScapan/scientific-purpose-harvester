@@ -6,7 +6,8 @@ import $ from "jquery"
 
 export function foodpath(question) {
 $.ajax({
-			url: "http://localhost:5000/foodpath",
+			// url: "http://localhost:5000/foodpath",
+			url: "http://85.214.28.167:5000/foodpath",
 			type: "POST",
 			data: {question:question}
 
@@ -26,7 +27,8 @@ $.ajax({
 
 export function scholar(question) {
 $.ajax({
-			url: "http://localhost:5000/scholar",
+			// url: "http://localhost:5000/scholar",
+			url: "http://85.214.28.167:5000/foodpath",
 			type: "POST",
 			data: {question:question}
 		}).done(function(response) {
