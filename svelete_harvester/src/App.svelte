@@ -3,8 +3,8 @@
 import { scholar, foodpath } from './functions.js';
 </script>
 
-<main>
-<div style="width: 80%; display: inline-block;">
+<main style="text-align: center;">
+<div style="width: 80%; display: inline-block; text-align: center;">
 	<h1 style="font-family: Arial; color: blue;">Welcome to SPH - Scientific Purpose Harvester</h1>
 	<div style="background-color: grey; border-radius: 5px;">
 		<br><br>
