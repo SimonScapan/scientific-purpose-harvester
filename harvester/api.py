@@ -19,9 +19,9 @@ def do_scholar(question):
     html = df.to_html(index=False, header="true", table_id="foodpath", columns=['Citationcount','Title', 'Content', 'URL'], col_space=['30%','20%','40%','30%'], justify='center', escape=False)
     return html
 
-@app.route('/')
-def home():
-    return render_template('home.html')
+# @app.route('/')
+# def home():
+#     return render_template('home.html')
 
 # returns for HTML calls
 @app.route('/foodpath', methods=['GET','POST'])
@@ -49,4 +49,5 @@ def my_form_post2():
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(host="0.0.0.0")
+    app.run(debug=True) # for testing    

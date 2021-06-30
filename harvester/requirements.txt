@@ -1,6 +1,5 @@
-re
 flask
 bs4
 pandas
-googlesearch
-ssl
+googlesearch-python
+lmxl
