@@ -11303,41 +11303,47 @@ var app = (function () {
     // import * from "http://www.skulpt.org/js/skulpt-stdlib.js");
 
 
-    function foodpath(question) {
-    jquery.ajax({
-    			url: "http://localhost:5000/foodpath",
-    			type: "POST",
-    			data: {question:question}
+    function foodpath(loader,question) {
+    	loader[0].style.display = "block";
+    	jquery.ajax({
+    		// url: "http://localhost:5000/foodpath",
+    		url: "http://85.214.28.167:5000/foodpath",
+    		type: "POST",
+    		data: { question: question }
 
-    		}).done(function(response) {
+    	}).done(function (response) {
 
-    			var html= "<br><br><br>";
+    		var html = "<br><br><br>";
 
-    			response =response.result;
-    				jquery.each(response,function(key,val){
-    				console.log(val);
-    					html+="<p>"+val+"<p>";
-    				});
-    				html +="<br>";
-    				jquery(".show-data").html(html);
-    			});
+    		response = response.result;
+    		jquery.each(response, function (key, val) {
+    			console.log(val);
+    			html += "<p>" + val + "<p>";
+    		});
+    		html += "<br>";
+    		// loader[0].style.display = "";
+    		jquery(".show-data").html(html);
+    	});
     }
-    function scholar(question) {
-    jquery.ajax({
-    			url: "http://localhost:5000/scholar",
-    			type: "POST",
-    			data: {question:question}
-    		}).done(function(response) {
-    			var html= "<br><br><br>";
-    			response = response.result;
-                console.log(response);
-    				jquery.each(response,function(key,val){
-    				console.log(val);
-    					html+="<p>"+val+"<p>";
-    				});
-    				html +="<br>";
-    				jquery(".show-data").html(html);
-    			});
+    function scholar(loader, question) {
+    	loader[0].style.display = "block";
+    	jquery.ajax({
+    		// url: "http://localhost:5000/scholar",
+    		url: "http://85.214.28.167:5000/scholar",
+    		type: "POST",
+    		data: { question: question }
+    	}).done(function (response) {
+    		var html = "<br><br><br>";
+    		response = response.result;
+    		console.log(response);
+    		jquery.each(response, function (key, val) {
+    			console.log(val);
+    			html += "<p>" + val + "<p>";
+    		});
+    		html += "<br>";
+    		loader[0].style.display = "";
+    		jquery(".show-data").html(html);
+    	});
     }
     // export function runit(prog, mypre) { 
     //     // var prog = document.getElementById("yourcode").value; 
@@ -11362,7 +11368,7 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let main;
-    	let div1;
+    	let div3;
     	let h1;
     	let t1;
     	let div0;
@@ -11389,13 +11395,16 @@ var app = (function () {
     	let button;
     	let t11;
     	let div2;
+    	let div1;
+    	let t12;
+    	let div4;
     	let mounted;
     	let dispose;
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			div1 = element("div");
+    			div3 = element("div");
     			h1 = element("h1");
     			h1.textContent = "Welcome to SPH - Scientific Purpose Harvester";
     			t1 = space();
@@ -11424,23 +11433,26 @@ var app = (function () {
     			button.textContent = "Search";
     			t11 = space();
     			div2 = element("div");
+    			div1 = element("div");
+    			t12 = space();
+    			div4 = element("div");
     			set_style(h1, "font-family", "Arial");
     			set_style(h1, "color", "blue");
-    			add_location(h1, file, 7, 1, 185);
-    			add_location(br0, file, 9, 2, 344);
-    			add_location(br1, file, 9, 6, 348);
-    			add_location(br2, file, 13, 3, 663);
-    			add_location(br3, file, 13, 7, 667);
+    			add_location(h1, file, 7, 1, 275);
+    			add_location(br0, file, 9, 2, 434);
+    			add_location(br1, file, 9, 6, 438);
+    			add_location(br2, file, 13, 3, 753);
+    			add_location(br3, file, 13, 7, 757);
     			set_style(p, "font-family", "Arial");
     			set_style(p, "color", "white");
-    			add_location(p, file, 10, 2, 356);
-    			add_location(br4, file, 16, 2, 781);
-    			add_location(br5, file, 16, 6, 785);
+    			add_location(p, file, 10, 2, 446);
+    			add_location(br4, file, 16, 2, 871);
+    			add_location(br5, file, 16, 6, 875);
     			set_style(div0, "background-color", "grey");
     			set_style(div0, "border-radius", "5px");
-    			add_location(div0, file, 8, 1, 283);
-    			add_location(br6, file, 18, 1, 801);
-    			add_location(br7, file, 18, 5, 805);
+    			add_location(div0, file, 8, 1, 373);
+    			add_location(br6, file, 18, 1, 891);
+    			add_location(br7, file, 18, 5, 895);
     			set_style(input, "width", "500px");
     			set_style(input, "height", "40px");
     			set_style(input, "border-radius", "5px");
@@ -11449,34 +11461,38 @@ var app = (function () {
     			attr_dev(input, "type", "text");
     			attr_dev(input, "id", "question");
     			attr_dev(input, "name", "question");
-    			add_location(input, file, 19, 1, 812);
-    			add_location(br8, file, 20, 1, 969);
-    			add_location(br9, file, 20, 5, 973);
+    			add_location(input, file, 19, 1, 902);
+    			add_location(br8, file, 20, 1, 1059);
+    			add_location(br9, file, 20, 5, 1063);
     			set_style(button, "font-family", "Arial");
     			set_style(button, "width", "150px");
     			set_style(button, "height", "50px");
     			set_style(button, "border-radius", "5px");
     			attr_dev(button, "id", "scholar");
-    			add_location(button, file, 22, 1, 1183);
-    			set_style(div1, "width", "80%");
-    			set_style(div1, "display", "inline-block");
-    			set_style(div1, "text-align", "center");
-    			add_location(div1, file, 6, 0, 114);
-    			attr_dev(div2, "class", "show-data");
-    			set_style(div2, "width", "90%");
-    			add_location(div2, file, 27, 0, 1381);
+    			add_location(button, file, 22, 1, 1273);
+    			attr_dev(div1, "class", "loading");
+    			add_location(div1, file, 24, 3, 1524);
+    			attr_dev(div2, "class", "loader");
+    			add_location(div2, file, 23, 1, 1499);
+    			set_style(div3, "width", "80%");
+    			set_style(div3, "display", "inline-block");
+    			set_style(div3, "text-align", "center");
+    			add_location(div3, file, 6, 0, 204);
+    			attr_dev(div4, "class", "show-data");
+    			set_style(div4, "width", "90%");
+    			add_location(div4, file, 32, 0, 1588);
     			set_style(main, "text-align", "center");
-    			add_location(main, file, 5, 0, 78);
+    			add_location(main, file, 5, 0, 168);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, div1);
-    			append_dev(div1, h1);
-    			append_dev(div1, t1);
-    			append_dev(div1, div0);
+    			append_dev(main, div3);
+    			append_dev(div3, h1);
+    			append_dev(div3, t1);
+    			append_dev(div3, div0);
     			append_dev(div0, br0);
     			append_dev(div0, br1);
     			append_dev(div0, t2);
@@ -11488,18 +11504,21 @@ var app = (function () {
     			append_dev(div0, t5);
     			append_dev(div0, br4);
     			append_dev(div0, br5);
-    			append_dev(div1, t6);
-    			append_dev(div1, br6);
-    			append_dev(div1, br7);
-    			append_dev(div1, t7);
-    			append_dev(div1, input);
-    			append_dev(div1, t8);
-    			append_dev(div1, br8);
-    			append_dev(div1, br9);
-    			append_dev(div1, t9);
-    			append_dev(div1, button);
-    			append_dev(main, t11);
-    			append_dev(main, div2);
+    			append_dev(div3, t6);
+    			append_dev(div3, br6);
+    			append_dev(div3, br7);
+    			append_dev(div3, t7);
+    			append_dev(div3, input);
+    			append_dev(div3, t8);
+    			append_dev(div3, br8);
+    			append_dev(div3, br9);
+    			append_dev(div3, t9);
+    			append_dev(div3, button);
+    			append_dev(div3, t11);
+    			append_dev(div3, div2);
+    			append_dev(div2, div1);
+    			append_dev(main, t12);
+    			append_dev(main, div4);
 
     			if (!mounted) {
     				dispose = listen_dev(button, "click", /*click_handler*/ ctx[0], false, false, false);
@@ -11527,6 +11546,10 @@ var app = (function () {
     	return block;
     }
 
+    function spinner() {
+    	document.getElementsByClassName("loader")[0].style.display = "block";
+    }
+
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("App", slots, []);
@@ -11536,8 +11559,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
-    	const click_handler = () => scholar(document.getElementById("question").value);
-    	$$self.$capture_state = () => ({ scholar, foodpath });
+    	const click_handler = () => scholar(document.getElementsByClassName("loader"), document.getElementById("question").value);
+    	$$self.$capture_state = () => ({ scholar, foodpath, spinner });
     	return [click_handler];
     }
 

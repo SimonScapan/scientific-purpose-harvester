@@ -1,6 +1,6 @@
 <script>
-
 import { scholar, foodpath } from './functions.js';
+function spinner() {document.getElementsByClassName("loader")[0].style.display = "block";}
 </script>
 
 <main style="text-align: center;">
@@ -20,9 +20,14 @@ import { scholar, foodpath } from './functions.js';
 	<input style="width: 500px; height: 40px; border-radius: 5px; font-size: 1em" placeholder=" Type your question" type="text" id="question" name="question">
 	<br><br>
 	<!-- <button style="font-family: Arial; width: 150px; height: 50px; border-radius: 5px;" id="foodpath" on:click={() => foodpath(document.getElementById("question").value)}">Google results</button> -->
-	<button style="font-family: Arial; width: 150px; height: 50px; border-radius: 5px;" id="scholar" on:click={() => scholar(document.getElementById("question").value)}>Search</button>
+	<button style="font-family: Arial; width: 150px; height: 50px; border-radius: 5px;" id="scholar" on:click={() => scholar(document.getElementsByClassName("loader"), document.getElementById("question").value)}>Search</button>
+	<div class="loader">
+	  <div class="loading">
+	  </div>
+	</div>
 	
 	
+  	
 </div>
 
 <div class="show-data" style="width: 90%;"></div>	

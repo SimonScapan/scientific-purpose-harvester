@@ -4,44 +4,48 @@ import $ from "jquery"
 // import * from "http://www.skulpt.org/js/skulpt-stdlib.js");
 
 
-export function foodpath(question) {
-$.ajax({
-			// url: "http://localhost:5000/foodpath",
-			url: "http://85.214.28.167:5000/foodpath",
-			type: "POST",
-			data: {question:question}
+export function foodpath(loader,question) {
+	loader[0].style.display = "block";
+	$.ajax({
+		// url: "http://localhost:5000/foodpath",
+		url: "http://85.214.28.167:5000/foodpath",
+		type: "POST",
+		data: { question: question }
 
-		}).done(function(response) {
+	}).done(function (response) {
 
-			var html= "<br><br><br>";
+		var html = "<br><br><br>";
 
-			response =response.result;
-				$.each(response,function(key,val){
-				console.log(val);
-					html+="<p>"+val+"<p>"
-				});
-				html +="<br>";
-				$(".show-data").html(html);
-			});
+		response = response.result;
+		$.each(response, function (key, val) {
+			console.log(val);
+			html += "<p>" + val + "<p>"
+		});
+		html += "<br>";
+		// loader[0].style.display = "";
+		$(".show-data").html(html);
+	});
 };
 
-export function scholar(question) {
-$.ajax({
-			// url: "http://localhost:5000/scholar",
-			url: "http://85.214.28.167:5000/foodpath",
-			type: "POST",
-			data: {question:question}
-		}).done(function(response) {
-			var html= "<br><br><br>";
-			response = response.result;
-            console.log(response)
-				$.each(response,function(key,val){
-				console.log(val);
-					html+="<p>"+val+"<p>"
-				});
-				html +="<br>";
-				$(".show-data").html(html);
-			});
+export function scholar(loader, question) {
+	loader[0].style.display = "block";
+	$.ajax({
+		// url: "http://localhost:5000/scholar",
+		url: "http://85.214.28.167:5000/scholar",
+		type: "POST",
+		data: { question: question }
+	}).done(function (response) {
+		var html = "<br><br><br>";
+		response = response.result;
+		console.log(response)
+		$.each(response, function (key, val) {
+			console.log(val);
+			html += "<p>" + val + "<p>"
+		});
+		html += "<br>";
+		loader[0].style.display = "";
+		$(".show-data").html(html);
+	});
 };
 
 // export function runit(prog, mypre) { 
