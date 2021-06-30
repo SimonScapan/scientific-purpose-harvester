@@ -1,6 +1,8 @@
 # mac specific shit
 .DS_Store
 .vscode
+fume/package-lock.json
+fume/package.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
