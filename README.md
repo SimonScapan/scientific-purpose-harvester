@@ -15,6 +15,14 @@ Check Google Scholar for the best scientific results for your question, with the
 
 # How to start
 
+## Video Introduction
+
+Quickly start with a Cideo Tutorial for the SPH! (Click Image to go to Youtube)
+
+[![Introduction](/media/Landing-Page.png)](https://www.youtube.com/watch?v=KiLfPeoQvUo)
+
+
+
 ## Online
 
 The easiest way to access the SPH.
@@ -32,12 +40,13 @@ git clone https://github.com/SimonScapan/scientific-purpose-harvester.git
 ```console
 cd harvester
 ```
-3. Start the api.py to start the harvester
+3. Uncomment Lines 22-24 in [api.py](/harvester/api.py)
+4. Start the api.py to start the harvester
 ```console
 python api.py
 ```
-4. Open [Local Website](http://127.0.0.1:5000/) in your Browser
-5. Shutdown Local Website with Using **CTRL+C** in your terminal
+5. Open [Local Website](http://127.0.0.1:5000/) in your Browser
+6. Shutdown Local Website with Using **CTRL+C** in your terminal
 
 # How to use
 
