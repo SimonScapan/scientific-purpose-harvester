@@ -17,7 +17,7 @@ Check Google Scholar for the best scientific results for your question, with the
 
 ## Video Introduction
 
-Quickly start with a Cideo Tutorial for the SPH! (Click Image to go to Youtube)
+Quickly start with a Video Tutorial for the SPH! (Click Image to go to Youtube)
 
 [![Introduction](/media/Landing-Page.png)](https://www.youtube.com/watch?v=KiLfPeoQvUo)
 
