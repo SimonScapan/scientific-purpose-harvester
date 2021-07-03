@@ -1,22 +1,79 @@
 # scientific-purpose-harvester
-This Repo is build for educational purposes. It's aim is to build a dynamic possibility of a "scientific purpose harvester" (SPH) to crawl scientific webpages for relevant content.
 
-# Idea
+> Crawl Scientific Webpages for relevant papers. The easisets way to start your journey in the scientific jungle.
+> - The SPH Team
 
-Check Google for the best scientific results for an given questionwith the help of an User Interface.
+*This Repro is build for only educational purposes!*
 
-# Method
+The Scientific-Purpose-Harvester (**SPH**) aims to build a dynamic possibility of crawling scientific webpages for relevant content, matching your questions.
 
-1. Google search the insertet question
-2. Pick the first 10 Websites and check them for Topic and Content
-3. Skip Websites which are Blacklistet by us (e.g. Wikipedia, YouTube, ...)
-4. Return the best 5 Pages to the User Interface with Headline, Content and URL
+![Landing-Page](/media/Landing-Page.png)
 
-# How to use it
+# Vision
 
-1. Simply open the Webapp by running the API[harvester/api.py] file
-2. Type in your scientific question
-3. Click on "Let's go"
-4. Check out your results
-5. Click no "Refresh"
-6. Go to point 2
+Check Google Scholar for the best scientific results for your question, with the help of an easy-to-use Graphical User Interface.
+
+# How to start
+
+## Online
+
+The easiest way to access the SPH.
+
+Simply open [SPH](http://85.214.28.167:5001/), hosted by an SPH-Teammember.
+This Website uses the svelte-Version of the SPH.
+
+## Offline (Localy)
+
+1. Clone the Repro
+```console
+git clone https://github.com/SimonScapan/scientific-purpose-harvester.git
+```
+2. Navigate into harvester
+```console
+cd harvester
+```
+3. Start the api.py to start the harvester
+```console
+python api.py
+```
+4. Open [Local Website](http://127.0.0.1:5000/) in your Browser
+5. Shutdown Local Website with Using **CTRL+C** in your terminal
+
+# How to use
+
+1. Enter your question
+![Question](/media/Question.png)
+2. Hit the search button and wait for results.
+3. Get a quick Overview of the best scientific papers for your questions. 
+Follow a Link to get directly to the paper.
+![Result](/media/Result.png)
+
+# Used technology / Interesting Facts
+
+* [Scraper-API](https://www.scraperapi.com/) allows us to crawl Google Scholar (or other Websites) without getting blacklisted.
+  * A Free Plan of ScraperAPI is used. It allows 1000 free Requests per Month
+  * If there is a Problem with the used API Key
+    * Get your own free API-Key on the ScraperAPI Website
+    * Replace the given API-Key with your personal API-Key in the [harvester_scholar.py](harvester/harvester_scholar.py) file
+* [Svelte](https://svelte.dev/) allows us to use python file within the website
+* The Papers are ranked by citation count
+
+# Future Extensions
+
+Here are some Idead for future extions. Feel free to fork this Project and add some of these, or your own Ideas!
+
+- [ ] Free Text based NLP Training --> Q&A Pair generation --> Feed [Fancy Flash Cards](https://github.com/michael-spengler/ffc) with Content
+- [ ] Build a Network of the cited articles. Who cited who? Where are conections?
+- [ ] Build an Integration to some more Scientific Search Engines, like IEEE, arxiv, ...
+- [ ] Generate with the Help of NLP abstracts for each Paper
+
+# Thank you
+
+Thank you for using the SPH.
+If you have questions, feel free to reach out for the SPH-Team:
+
+* **Jan Brebeck** - [Brebeck-Jan](https://github.com/Brebeck-Jan)
+* **Andreas Bernrieder** - [Phantomias3782](https://github.com/Phantomias3782)
+* **Simon Scapan** - [SimonScapan](https://github.com/SimonScapan)
+* **Thorsten Hilbradt** - [Thorsten-H](https://github.com/Thorsten-H)
+* **Niklas Wichter** - [NWichter](https://github.com/NWichter)
