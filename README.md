@@ -54,7 +54,7 @@ Follow a Link to get directly to the paper.
   * A Free Plan of ScraperAPI is used. It allows 1000 free Requests per Month
   * If there is a Problem with the used API Key
     * Get your own free API-Key on the ScraperAPI Website
-    * Replace the given API-Key with your personal API-Key in the [harvester_scholar.py](harvester/harvester_scholar.py) file
+    * Replace the given API-Key with your personal API-Key in the [harvester_scholar.py](harvester/harvester_scholar.py) file (Line 34)
 * [Svelte](https://svelte.dev/) allows us to use python file within the website
 * The Papers are ranked by citation count
 
