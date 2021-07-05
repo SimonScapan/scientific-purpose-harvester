@@ -3,7 +3,9 @@
 > Crawl Scientific Webpages for relevant papers. The easisets way to start your journey in the scientific jungle.
 > - The SPH Team
 
-*This Repro is build for only educational purposes!*
+You can try the SPH [here](http://85.214.28.167:5001/).
+
+*This Repo is build for only educational purposes!*
 
 The Scientific-Purpose-Harvester (**SPH**) aims to build a dynamic possibility of crawling scientific webpages for relevant content, matching your questions.
 
