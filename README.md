@@ -5,7 +5,7 @@
 
 You can try the SPH [here](http://85.214.28.167:5001/).
 
-*This Repo is build for only educational purposes!*
+*This service / repo is build for only educational purposes!*
 
 The Scientific-Purpose-Harvester (**SPH**) aims to build a dynamic possibility of crawling scientific webpages for relevant content, matching your questions.
 
@@ -13,7 +13,8 @@ The Scientific-Purpose-Harvester (**SPH**) aims to build a dynamic possibility o
 
 # Vision
 
-Check Google Scholar for the best scientific results for your question, with the help of an easy-to-use Graphical User Interface.
+Check Google Scholar for the best scientific results for your question, with the help of an easy-to-use Graphical User Interface.   
+In the long run we might connect additional data sources like https://dblp.uni-trier.de/ (conferences not yet peer reviewed...).
 
 # How to start
 
